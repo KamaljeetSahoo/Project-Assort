@@ -21,7 +21,7 @@ def permutation(lst):
           l.append([m] + p)
   return l
  
-#   As input 
+#   As input features after updating weights
 list1=['0.3','0.4','0.1','0.1','0.1']
 l2=(permutation(list1))
 mySet = set()
