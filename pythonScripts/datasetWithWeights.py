@@ -1,8 +1,15 @@
 
 import csv
-
+import pandas as pd
 from normalize import scale
 header = ["Supplier Name","Region","Country","Function","Service","Avg. Cost","Rating","Average Delivery Time","Number of escalations","Year","Resources","w1","w2","w3","w4","w5","score"]
+df = pd.read_csv('dataset_normalizedScore.csv')
+m_c=(df['Avg. Cost'].drop_duplicates().nsmallest(2).iloc[-1])
+m_r=(df['Rating'].drop_duplicates().nsmallest(2).iloc[-1])
+m_d=(df['Average Delivery Time'].drop_duplicates().nsmallest(2).iloc[-1])
+m_e=(df['Number of escalations'].drop_duplicates().nsmallest(2).iloc[-1])
+m_re=(df['Resources'].drop_duplicates().nsmallest(2).iloc[-1])
+
 with open('dataset_normalized.csv') as file:
     reader_obj = csv.DictReader(file)
     obj = csv.reader(file)
@@ -31,11 +38,11 @@ with open('dataset_normalized.csv') as file:
                             d=float(row[7])
                             e=float(row[8])
                             re=float(row[10])
-                            c=scale(c)
-                            r=scale(r)
-                            d=scale(d)
-                            e=scale(e)
-                            re=scale(r)
+                            c=scale(m_c,c)
+                            r=scale(m_r,r)
+                            d=scale(m_d,d)
+                            e=scale(m_e,e)
+                            re=scale(m_re,re)
 
                             score = (i/c)+(j*r)+(k/d)+(l/e)+(m/re)
                             nrow.append(score)

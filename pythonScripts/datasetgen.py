@@ -4,7 +4,7 @@ import numpy as np
 import random
 header = ["Supplier Name","Region","Country","Function","Service","Avg. Cost","Rating","Average Delivery Time","Number of escalations","Year","Resources"]
 years=["2015","2016","2017","2018","2019","2020"]
-region = ["R-1","R-2"]
+
 data = json.load(open('data.json'))
 
 average_cost = []

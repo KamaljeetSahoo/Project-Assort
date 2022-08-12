@@ -10,8 +10,13 @@ def normalize(df,column_name):
     df[column_name] = (df[column_name] - x_min) / (x_max - x_min)
     return df
 
-def scale(n):
+def scale(min,n):
     if n==0:
-        return 0.001 #avoid division by zero
+        
+        return min/2
     else:
         return n
+
+
+df = pd.read_csv('normalizedScore.csv')
+print(find_extreme(df,'score'))
