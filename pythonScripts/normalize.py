@@ -18,5 +18,5 @@ def scale(min,n):
         return n
 
 
-df = pd.read_csv('normalizedScore.csv')
-print(find_extreme(df,'score'))
+# df = pd.read_csv('normalizedScore.csv')
+# print(find_extreme(df,'score'))
