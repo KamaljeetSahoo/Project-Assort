@@ -18,3 +18,10 @@ def homepage(request):
         'regions': Region.objects.all(),
     }
     return render(request, 'supplier/home.html', context=context)
+
+def viewCompanyData(request, company_id):
+    company = Company.objects.get(id=company_id)
+    context = {
+        'company': company,
+    }
+    return render(request, 'supplier/companyData.html', context=context)
