@@ -68,5 +68,5 @@ for i, row in df.iterrows():
     country = Country.objects.get(country_name=row['Country'])
     region = Region.objects.get(region_code=row['Region'])
     company = Company.objects.get(company_name=row['Supplier Name'])
-    Supplier(supplier_name=company, region=region, country=country, supplier_function=func, service=service, avg_cost=row['Avg. Cost'], rating=row['Rating'], avg_delivery_time=row['Average Delivery Time'], escalations=row['Number of escalations'], year=row['Year'], resources=row['Resources']).save()
+    Supplier(company=company, region=region, country=country, supplier_function=func, service=service, avg_cost=row['Avg. Cost'], rating=row['Rating'], avg_delivery_time=row['Average Delivery Time'], escalations=row['Number of escalations'], year=row['Year'], resources=row['Resources']).save()
     print("Adding supplier: ", row['Supplier Name'])
