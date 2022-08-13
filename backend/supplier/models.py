@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Region(models.Model):
@@ -31,6 +32,12 @@ class Supplier(models.Model):
     country = models.ForeignKey(Country, null=True, blank=True, on_delete=models.CASCADE)
     supplier_function = models.ForeignKey(Function, null=True, blank=True, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, null=True, blank=True, on_delete=models.CASCADE)
+    avg_cost = models.IntegerField(blank=True, null=True)
+    rating = models.IntegerField(blank=True, null=True, validators=[MaxValueValidator(100), MinValueValidator(60)])
+    avg_delivery_time = models.IntegerField(blank=True, null=True)
+    escalations = models.IntegerField(blank=True, null=True)
+    year = models.IntegerField(blank=True, null=True)
+    resources = models.IntegerField(blank=True, null=True)
     
     def __str__(self) -> str:
         return str(self.supplier_name)

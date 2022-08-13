@@ -56,3 +56,11 @@ for service in services:
     print("Adding service: ", service)
 
 print("Sample data added to the database")
+
+for i, row in df.iterrows():
+    func = Function.objects.get(company_func=row['Function'])
+    service = Service.objects.get(service_name=row['Service'])
+    country = Country.objects.get(country_name=row['Country'])
+    region = Region.objects.get(region_code=row['Region'])
+    Supplier(supplier_name=row['Supplier Name'], region=region, country=country, supplier_function=func, service=service, avg_cost=row['Avg. Cost'], rating=row['Rating'], avg_delivery_time=row['Average Delivery Time'], escalations=row['Number of escalations'], year=row['Year'], resources=row['Resources']).save()
+    print("Adding supplier: ", row['Supplier Name'])
