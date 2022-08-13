@@ -43,4 +43,4 @@ class Supplier(models.Model):
     resources = models.IntegerField(blank=True, null=True)
     
     def __str__(self) -> str:
-        return str(self.supplier_name)
+        return str(self.company)
