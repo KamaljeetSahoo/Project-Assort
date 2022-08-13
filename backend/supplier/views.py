@@ -21,7 +21,11 @@ def homepage(request):
 
 def viewCompanyData(request, company_id):
     company = Company.objects.get(id=company_id)
+    supplier_record = list(company.supplier_set.all())
+    func = supplier_record[0].supplier_function
     context = {
         'company': company,
+        'suppliers': supplier_record,
+        'function': func,
     }
     return render(request, 'supplier/companyData.html', context=context)

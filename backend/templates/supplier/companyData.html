@@ -2,6 +2,68 @@
 {% block content %}
     <div class="container mt-5 mb-5">
         <h1 class="mt-5" style="margin-top: 100px!important;">{{company.company_name}}</h1>
-        
+        <div class="card">
+            <div class="card-title">
+                <button type="button" class="btn btn-primary">
+                    Function <span class="ml-4 badge badge-light">{{function}}</span>
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="display table table-striped table-hover" id="basic-datatables">
+                        <thead>
+                            <tr>
+                                <th>Region</th>
+                                <th>Country</th>
+                                <th>Service</th>
+                                <th>Year</th>
+                                <th>Avg. Cost</th>
+                                <th>Rating</th>
+                                <th>Delivery Time</th>
+                                <th>Ecsaltions</th>
+                                <th>Resources</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Region</th>
+                                <th>Country</th>
+                                <th>Service</th>
+                                <th>Year</th>
+                                <th>Avg. Cost</th>
+                                <th>Rating</th>
+                                <th>Delivery Time</th>
+                                <th>Escaltions</th>
+                                <th>Resources</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            {%for supplier in suppliers%}
+                            <tr>
+                                <td>{{supplier.region.region_code}}</td>
+                                <td>{{supplier.country.country_name}}</td>
+                                <td>{{supplier.service.service_name}}</td>
+                                <td>{{supplier.year}}</td>
+                                <td>{{supplier.avg_cost}}</td>
+                                <td>{{supplier.rating}}</td>
+                                <td>{{supplier.avg_delivery_time}}</td>
+                                <td>{{supplier.escalations}}</td>
+                                <td>{{supplier.resources}}</td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    $(document).ready(function(){
+        $('#basic-datatables').DataTable({
+        });
+    })
+</script>
 {% endblock %}
