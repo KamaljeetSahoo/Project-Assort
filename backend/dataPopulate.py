@@ -5,7 +5,7 @@ import django
 django.setup()
 print("Dajngo module initiated")
 
-from supplier.models import Supplier, Region, Country, Function, Service
+from supplier.models import Supplier, Region, Country, Function, Service, Company
 # import json
 
 # data = json.load(open('../pythonScripts/data.json'))
@@ -29,11 +29,11 @@ df = pd.read_csv('../pythonScripts/dataset.csv')
 print("Sample Data Loaded")
 print(df.head())
 print(df.columns)
-suppliers = df['Supplier Name'].unique()
 regions = df['Region'].unique()
 countries = df['Country'].unique()
 functions = df['Function'].unique()
 services = df['Service'].unique()
+companies = df['Supplier Name'].unique()
 
 print("Adding regions")
 for region in regions:
@@ -55,6 +55,11 @@ for service in services:
     Service(service_name=service).save()
     print("Adding service: ", service)
 
+print("Adding Companies")
+for comp in companies:
+    Company(company_name=comp).save()
+    print("Adding Company: ", comp)
+
 print("Sample data added to the database")
 
 for i, row in df.iterrows():
@@ -62,5 +67,6 @@ for i, row in df.iterrows():
     service = Service.objects.get(service_name=row['Service'])
     country = Country.objects.get(country_name=row['Country'])
     region = Region.objects.get(region_code=row['Region'])
-    Supplier(supplier_name=row['Supplier Name'], region=region, country=country, supplier_function=func, service=service, avg_cost=row['Avg. Cost'], rating=row['Rating'], avg_delivery_time=row['Average Delivery Time'], escalations=row['Number of escalations'], year=row['Year'], resources=row['Resources']).save()
+    company = Company.objects.get(company_name=row['Supplier Name'])
+    Supplier(supplier_name=company, region=region, country=country, supplier_function=func, service=service, avg_cost=row['Avg. Cost'], rating=row['Rating'], avg_delivery_time=row['Average Delivery Time'], escalations=row['Number of escalations'], year=row['Year'], resources=row['Resources']).save()
     print("Adding supplier: ", row['Supplier Name'])
