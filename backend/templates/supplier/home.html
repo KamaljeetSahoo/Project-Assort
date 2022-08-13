@@ -13,7 +13,7 @@
               <tbody>
                 {% for supplier in suppliers %}
                     <tr>
-                        <td>{{supplier.supplier_name}}</td>
+                        <td>{{supplier.company.company_name}}</td>
                         <td>{{supplier.region.region_code}}</td>
                     </tr>
                 {% endfor %}

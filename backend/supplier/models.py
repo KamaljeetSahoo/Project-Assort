@@ -25,9 +25,12 @@ class Service(models.Model):
     
     def __str__(self) -> str:
         return str(self.service_name)
+
+class Company(models.Model):
+    company_name = models.CharField(max_length=100)
     
 class Supplier(models.Model):
-    supplier_name = models.CharField(max_length=10)
+    company = models.ForeignKey(Company, null=True, blank=True, on_delete=models.CASCADE)
     region = models.ForeignKey(Region, null=True, blank=True, on_delete=models.CASCADE)
     country = models.ForeignKey(Country, null=True, blank=True, on_delete=models.CASCADE)
     supplier_function = models.ForeignKey(Function, null=True, blank=True, on_delete=models.CASCADE)
