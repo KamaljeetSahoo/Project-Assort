@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-5 mb-5">
+        <h1 class="mt-5" style="margin-top: 100px!important;">Predict</h1>
+        <div class="card">
+            <label>Select Service</label>
+            <select class="form-select form-control" aria-label="Region" name="service" id="service">
+                {% for service in services %}
+                    <option value="{{service.id}}">{{service.service_name}}</option>
+                {% endfor %}
+            </select>
+            <input type="range" class="form-range" min="100" max="1000" value="150" step="1">
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    
+</script>
+{% endblock %}
