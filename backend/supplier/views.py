@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Supplier, Region, Company
+from .models import Service, Supplier, Region, Company
 
 # Create your views here.
 def homepage(request):
@@ -29,3 +29,9 @@ def viewCompanyData(request, company_id):
         'function': func,
     }
     return render(request, 'supplier/companyData.html', context=context)
+
+def fetch(request):
+    context = {
+        'services': Service.objects.all(),
+    }
+    return render(request, 'supplier/predict.html', context=context)
