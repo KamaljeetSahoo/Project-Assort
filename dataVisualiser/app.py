@@ -31,9 +31,9 @@ if resource_bool:
 
 ecsalations_bool = st.checkbox(label="Check if you want to add Ecsalations range")
 if ecsalations_bool:
-    select_ecs = st.slider('Select a Ecsalations range', min(df['Resources']), max(df['Resources']), (int(1.1*(min(df['Resources']))), int(0.9*(max(df['Resources'])))))
-    service_df = service_df[service_df['Resources'] >= select_ecs[0]]
-    service_df = service_df[service_df['Resources'] <= select_ecs[1]]
+    select_ecs = st.slider('Select a Ecsalations range', min(df['Number of escalations']), max(df['Number of escalations']), (int(1.1*(min(df['Number of escalations']))), int(0.9*(max(df['Number of escalations'])))))
+    service_df = service_df[service_df['Number of escalations'] >= select_ecs[0]]
+    service_df = service_df[service_df['Number of escalations'] <= select_ecs[1]]
 
 select_weights = st.checkbox("Select Weightages")
 if select_weights:

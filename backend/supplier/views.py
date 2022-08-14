@@ -10,6 +10,7 @@ def homepage(request):
         companies = []
         for comp in companies_ids:
             companies.append(Company.objects.get(id=comp['company']))
+        companies = companies[:50]
     else:
         companies = Company.objects.all()  
     context = {
