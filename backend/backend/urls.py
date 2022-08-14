@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('supplier.urls')),
     path('', include('insights.urls')),
     path('', include('api.urls')),
+    path('', include('services.urls')),
 ]

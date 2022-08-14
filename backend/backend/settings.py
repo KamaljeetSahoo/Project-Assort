@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'supplier',
     'insights',
     'api',
+    'services',
 ]
 
 MIDDLEWARE = [

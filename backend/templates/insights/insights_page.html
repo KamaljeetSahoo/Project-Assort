@@ -9,26 +9,57 @@
     <div class="page-inner mt-5">
         <div class="page-header mt-5">
         <div class="container-fluid">
-            <div class="card card-stats card-info card-round">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="icon-big text-center">
-                                <i class="flaticon-interface-6"></i>
-                            </div>
-                        </div>
-                        <div class="col-7 col-stats">
-                            <div class="numbers">
-                                
-                                <h8 class="card-title">COMPANY HISTORY</h8>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-sm-6 col-lg-3">
+					<div class="card p-3">
+						<div class="d-flex align-items-center">
+							<h1>{{company}}</h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3">
+					<div class="card p-3">
+						<div class="d-flex align-items-center">
+							<span class="stamp stamp-md bg-secondary mr-3">
+								<i class="fa fa-dollar-sign"></i>
+							</span>
+							<div>
+								<h5 class="mb-1"><b><a href="#">132 <small>Sales</small></a></b></h5>
+								<small class="text-muted">12 waiting payments</small>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3">
+					<div class="card p-3">
+						<div class="d-flex align-items-center">
+							<span class="stamp stamp-md bg-success mr-3">
+								<i class="fa fa-shopping-cart"></i>
+							</span>
+							<div>
+								<h5 class="mb-1"><b><a href="#">78 <small>Orders</small></a></b></h5>
+								<small class="text-muted">32 shipped</small>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3">
+					<div class="card p-3">
+						<div class="d-flex align-items-center">
+							<span class="stamp stamp-md bg-danger mr-3">
+								<i class="fa fa-users"></i>
+							</span>
+							<div>
+								<h5 class="mb-1"><b><a href="#">1,352 <small>Members</small></a></b></h5>
+								<small class="text-muted">163 registered today</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="row">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title">Average Cost</div>
@@ -40,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title">Rating</div>
@@ -52,35 +83,136 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">Track your Triggers</div>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart-container">
-                                <canvas id="barChart"></canvas>
-                            </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">TOP 5 for {{service}}</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="radarChart"></canvas>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">Skin Roughness</div>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart-container">
-                                <canvas id="lineChart3"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
-            
+            <div class="row row-card-no-pd">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-head-row card-tools-still-right">
+								<h4 class="card-title">Service Providers' Geolocation</h4>
+								<div class="card-tools">
+									<button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-angle-down"></span></button>
+									<button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span class="fa fa-sync-alt"></span></button>
+									<button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-times"></span></button>
+								</div>
+							</div>
+							<p class="card-category">
+							Map of the distribution of users around the world</p>
+						</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="table-responsive table-hover table-sales">
+										<table class="table">
+											<tbody>
+												<tr>
+													<td>
+														<div class="flag">
+															<img src="/static/assets/img/flags/id.png" alt="indonesia">
+														</div>
+													</td>
+													<td>Indonesia</td>
+													<td class="text-right">
+														2.320
+													</td>
+													<td class="text-right">
+														42.18%
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="flag">
+															<img src="/static/assets/img/flags/us.png" alt="united states">
+														</div>
+													</td>
+													<td>USA</td>
+													<td class="text-right">
+														240
+													</td>
+													<td class="text-right">
+														4.36%
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="flag">
+															<img src="/static/assets/img/flags/au.png" alt="australia">
+														</div>
+													</td>
+													<td>Australia</td>
+													<td class="text-right">
+														119
+													</td>
+													<td class="text-right">
+														2.16%
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="flag">
+															<img src="/static/assets/img/flags/ru.png" alt="russia">
+														</div>
+													</td>
+													<td>Russia</td>
+													<td class="text-right">
+														1.081
+													</td>
+													<td class="text-right">
+														19.65%
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="flag">
+															<img src="/static/assets/img/flags/cn.png" alt="china">
+														</div>
+													</td>
+													<td>China</td>
+													<td class="text-right">
+														1.100
+													</td>
+													<td class="text-right">
+														20%
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="flag">
+															<img src="/static/assets/img/flags/br.png" alt="brazil">
+														</div>
+													</td>
+													<td>Brasil</td>
+													<td class="text-right">
+														640
+													</td>
+													<td class="text-right">
+														11.63%
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="mapcontainer">
+										<div id="map-example" class="vmap"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div
             
             
                 
@@ -98,10 +230,8 @@
     <script>
         var lineChart = document.getElementById('lineChart').getContext('2d');
         var lineChart2 = document.getElementById('lineChart2').getContext('2d');
+        var radarChart = document.getElementById('radarChart').getContext('2d');
         
-        var barChart = document.getElementById('barChart').getContext('2d');
-        var lineChart3 = document.getElementById('lineChart3').getContext('2d');
-    
 
         var myLineChart = new Chart(lineChart, {
             type: 'line',
@@ -193,79 +323,61 @@
                 }
             }
         });
-        var myBarChart = new Chart(barChart, {
-			type: 'bar',
+        var myRadarChart = new Chart(radarChart, {
+			type: 'radar',
 			data: {
-                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                //labels : {{trigger_x|safe}},
-				//labels: {{trigger_x}},
-				datasets : [{
-					label: "Triggers",
-					backgroundColor: "#0e9984",
-					borderColor: "#0e9984",
-				    //data: {{trigger_y}},
-                    //data : [4, 4, 2],
-                    data : [4,3,4,5,6,7,3,2,4,5,6,7],
-				}],
+				labels: {{radar_companies|safe}},
+				datasets: [{
+					data: {{avg_del_radar}},
+					borderColor: '#1d7af3',
+					backgroundColor : 'rgba(29, 122, 243, 0.25)',
+					pointBackgroundColor: "#1d7af3",
+					pointHoverRadius: 4,
+					pointRadius: 3,
+					label: 'Average Delivery Time'
+				}, {
+					data: {{esc_radar}},
+					borderColor: '#716aca',
+					backgroundColor: 'rgba(113, 106, 202, 0.25)',
+					pointBackgroundColor: "#716aca",
+					pointHoverRadius: 4,
+					pointRadius: 3,
+					label: 'Escalations'
+				},
+				]
 			},
-			options: {
+			options : {
 				responsive: true, 
 				maintainAspectRatio: false,
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				},
+				legend : {
+					position: 'bottom'
+				}
 			}
 		});
-        var myLineChart3 = new Chart(lineChart3, {
-            type: 'line',
-            data: {
-                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                //labels : {{labels}},
-                datasets: [{
-                    label: "Skin Roughness",
-                    borderColor: "#990e1c",
-                    pointBorderColor: "#FFF",
-                    pointBackgroundColor: "#990e1c",
-                    pointBorderWidth: 2,
-                    pointHoverRadius: 4,
-                    pointHoverBorderWidth: 1,
-                    pointRadius: 4,
-                    backgroundColor: 'transparent',
-                    fill: true,
-                    borderWidth: 2,
-                    //data: {{rough}},
-                    data:[1,2,3,4,5,6,7,8,9,1,2,3],
-                }]
-            },
-            options : {
-                responsive: true, 
-                maintainAspectRatio: false,
-                legend: {
-                    position: 'bottom',
-                    labels : {
-                        padding: 10,
-                        fontColor: '#990e1c',
-                    }
-                },
-                tooltips: {
-                    bodySpacing: 4,
-                    mode:"nearest",
-                    intersect: 0,
-                    position:"nearest",
-                    xPadding:10,
-                    yPadding:10,
-                    caretPadding:10
-                },
-                layout:{
-                    padding:{left:15,right:15,top:15,bottom:15}
-                }
-            }
-        });
-
+        $('#map-example').vectorMap(
+		{
+			map: 'world_en',
+			backgroundColor: 'transparent',
+			borderColor: '#fff',
+			borderWidth: 2,
+			color: '#e4e4e4',
+			enableZoom: true,
+			hoverColor: '#35cd3a',
+			hoverOpacity: null,
+			normalizeFunction: 'linear',
+			scaleColors: ['#b6d6ff', '#005ace'],
+			selectedColor: '#35cd3a',
+			selectedRegions: ['ID', 'RU', 'US', 'AU'],
+			showTooltip: true,
+			onRegionClick: function(element, code, region)
+			{
+				return false;
+			},
+			onResize: function (element, width, height) {
+				console.log('Map Size: ' +  width + 'x' +  height);
+			},
+		});
+        
 
     </script>
 
