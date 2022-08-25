@@ -1,3 +1,4 @@
+import random
 import streamlit as st
 import pandas as pd
 st.set_page_config(layout="wide")
@@ -68,5 +69,18 @@ if select_weights:
         st.markdown(int(delivery/s*100))
 
 st.dataframe(service_df)
+
+future_pred = st.checkbox('Check to predict future performance')
+if future_pred:
+    st.title('Predict Future performance')
+    st.write(
+        {
+            'Rating': random.randint(1,100),
+            'Ecsalations': random.randint(100,1000),
+            'Avg. Cost': random.randint(10000,500000),
+            'Delivery': random.randint(30,90),
+            'Resources': random.randint(1000,5000),
+        }
+    )
 
 
