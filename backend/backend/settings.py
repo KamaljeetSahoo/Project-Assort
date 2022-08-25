@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'insights',
     'api',
     'services',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,12 @@ TEMPLATES = [
         },
     },
 ]
+
+GRAPH_MODELS = {
+  'all_applications': False,
+  'group_models': True,
+  'app_labels': ["supplier"],
+}
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
